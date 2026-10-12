@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <title>Sasiranka D. Fernando — Web tools that print</title>
+  <meta name="description" content="Independent web developer in Colombo. Websites and in-browser business tools for Sri Lankan brands, from booking pages to invoices that print perfectly." />
+  <meta name="theme-color" content="#0F0E0C" />
+  <link rel="canonical" href="https://sashiranka.me/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sashiranka.me/" />
+  <meta property="og:site_name" content="Sasiranka D. Fernando" />
+  <meta property="og:title" content="Sasiranka D. Fernando — Form to Print" />
+  <meta property="og:description" content="Freelance web developer in Colombo, Sri Lanka. Browser tools that turn form data into print-ready PDFs, and websites for small Sri Lankan businesses." />
+  <meta property="og:image" content="https://sashiranka.me/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://sashiranka.me/og.png" />
+</head>
+<body class="is-loading">
+
+  <!-- ============ PRELOADER : "preflight" sheet ============ -->
+  <div class="pre" id="pre" aria-hidden="true">
+    <div class="pre__crop pre__crop--tl"></div><div class="pre__crop pre__crop--tr"></div>
+    <div class="pre__crop pre__crop--bl"></div><div class="pre__crop pre__crop--br"></div>
+    <div class="pre__top mono">
+      <div class="pre__brand">
+        <img src="/brand/signature-mark.png" alt="Sasiranka D. Fernando signature" width="471" height="252" />
+        <span class="pre__brand-name">Sasiranka D. Fernando<small>VZiP DEVELOGENZ</small></span>
+      </div>
+      <span class="pre__folio">SHEET 01 / 04</span>
+      <span class="pre__stock">A4 · 300 DPI · CMYK</span>
+    </div>
+    <div class="pre__center">
+      <div class="pre__count"><span class="pre__digits" id="preDigits">000</span><span class="pre__pct">%</span></div>
+      <ul class="pre__checks mono" id="preChecks">
+        <li data-k="fonts"><i></i>Embedding fonts</li>
+        <li data-k="mesh"><i></i>Loading poster</li>
+        <li data-k="ink"><i></i>Calibrating ink</li>
+      </ul>
+    </div>
+    <div class="pre__ruler" id="preRuler"><span class="pre__ruler-fill" id="preFill"></span></div>
+    <div class="pre__bottom mono">
+      <span class="reg-swatch"><b style="--c:#00A3D9"></b><b style="--c:#E5007D"></b><b style="--c:#FFE100"></b><b style="--c:#0F0E0C"></b></span>
+      <span>06°55′N 79°51′E</span>
+    </div>
+    <div class="pre__edge" aria-hidden="true"></div>
+  </div>
+
+  <!-- ============ CURSOR : registration mark ============ -->
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__ring"></span><span class="cursor__h"></span><span class="cursor__v"></span></div>
+
+  <main id="main">
+    <section class="hero" id="hero">
+      <!-- full-bleed background loop: muted, looping, inline. The poster <img> is the fallback
+           (reduced motion, autoplay blocked, slow networks); the video fades in over it once it plays. -->
+      <div class="bgvid hero__bg" id="heroBg" aria-hidden="true">
+        <img class="bgvid__poster" src="/video/hero-poster.webp" alt="" width="1280" height="886" fetchpriority="high" decoding="async" />
+        <video class="bgvid__video" id="heroVideo" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback tabindex="-1" width="1280" height="886" poster="/video/hero-poster.webp">
+          <source data-src="/video/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <!-- runs before first paint: reduced motion = no video (and no download); otherwise attach the sources -->
+        <script>(function(){var v=document.getElementById('heroVideo');if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.remove();return}[].forEach.call(v.querySelectorAll('source'),function(s){s.src=s.getAttribute('data-src')});v.load()})()</script>
+        <div class="bgvid__shade"></div>
+      </div>
+
+      <!-- sheet frame + crop & registration marks -->
+      <div class="sheet" aria-hidden="true">
+        <span class="crop crop--tl"></span><span class="crop crop--tr"></span>
+        <span class="crop crop--bl"></span><span class="crop crop--br"></span>
+        <span class="regmark regmark--l"></span><span class="regmark regmark--r"></span>
+      </div>
+
+      <header class="top">
+        <a class="brand" href="#hero" data-hover aria-label="Sasiranka D. Fernando home">
+          <span class="brand__mark" id="brandMark" aria-hidden="true"></span>
+          <span class="brand__name">Sasiranka D. Fernando<em>VZiP DEVELOGENZ</em></span>
+        </a>
+        <div class="top__meta mono">
+          <span>06°55′N&nbsp;79°51′E</span>
+          <span class="sep">/</span>
+          <span>Colombo <b id="clock">--:--:--</b></span>
+        </div>
+        <nav class="top__nav mono" aria-label="Primary">
+          <a href="#work" data-hover><sup>02</sup>Work</a>
+          <a href="#about" data-hover><sup>03</sup>About</a>
+          <a href="#contact" data-hover><sup>04</sup>Contact</a>
+        </nav>
+        <button class="top__menu mono" type="button" data-hover aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">Index</button>
+        <nav class="mobile-nav mono" id="mobileNav" aria-label="Mobile" hidden>
+          <a href="#work"><span>02</span> Work</a>
+          <a href="#about"><span>03</span> About</a>
+          <a href="#contact"><span>04</span> Contact</a>
+        </nav>
+      </header>
+
+      <div class="hero__kicker mono" data-reveal>
+        <span class="dot"></span>
+        <span><span class="hero__kicker-free">FREE</span> CONSULTATION SESSIONS AVAILABLE</span>
+      </div>
+
+      <h1 class="hero__title" aria-label="Form to print.">
+        <span class="line"><span class="line__in solid">Form</span></span>
+        <span class="line line--2"><span class="line__in"><em class="to">to</em><span class="ghost">Print</span><span class="stop">.</span></span></span>
+      </h1>
+
+      <div class="rcol">
+          <dl class="specs mono" data-reveal>
+            <div><dt>Builds</dt><dd>PDF tools · Brand sites</dd></div>
+            <div><dt>Clients</dt><dd>Retail · Education · Hospitality</dd></div>
+            <div><dt>Stack</dt><dd>JS · jsPDF · html2canvas · three</dd></div>
+          </dl>
+      </div>
+
+      <div class="hero__foot">
+        <div class="hero__copy">
+          <p class="lede" id="lede">I build <strong>websites and in-browser business tools</strong> for Sri&nbsp;Lankan brands, from booking pages to invoices, proposals and certificates that come off the printer exactly right.</p>
+          <div class="ctas">
+            <a class="btn btn--primary" href="#work" data-hover="cta">
+              <span class="btn__ticks"></span>
+              <span class="btn__fill"></span>
+              <span class="btn__label">See selected work</span>
+              <span class="btn__arrow">↘</span>
+            </a>
+            <a class="btn btn--text" href="mailto:sashirankafernando@gmail.com" data-hover="cta">
+              <span class="btn__label">Start a project</span><span class="btn__mail mono">sashirankafernando@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="scrollcue mono" aria-hidden="true">
+        <span class="scrollcue__bar"><i></i></span><span>Scroll</span><span class="folio">01 / 04</span>
+      </div>
+    </section>
+
+    <!-- ============ SHEET 02 : SELECTED WORK ============ -->
+    <section class="work sheet-sec" id="work" aria-labelledby="work-title">
+      <header class="sec-head">
+        <p class="mono sec-head__folio"><span>Sheet 02 / 04</span><span>Selected Work</span><span>3 case studies</span></p>
+        <h2 class="two-tone" id="work-title" data-split><span class="solid">Selected</span> <span class="ghost">Work</span></h2>
+        <p class="sec-head__lede" data-lines>Three projects for Sri Lankan businesses: a document system, a certificate tool and a resort website. Each one is live, linked below.</p>
+      </header>
+
+      <ol class="cases">
+        <li class="case" data-case>
+          <a class="case__fig" href="https://sashiranka-live.github.io/Salte-n-Fade-admin-portal-business-hub/" target="_blank" rel="noopener noreferrer" data-hover aria-label="Open Salt &amp; Fade Business Hub (live site)">
+            <span class="case__crop" aria-hidden="true"></span>
+            <img class="case__ht" src="/work/saltfade-ht.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+            <img class="case__col" src="/work/saltfade.webp" alt="Salt &amp; Fade Business Hub: invoice editor with demo data" width="1200" height="900" loading="lazy" decoding="async" />
+            <span class="case__tag mono">Proof 01 · Invoice view · demo data</span>
+          </a>
+          <div class="case__body">
+            <p class="case__no mono"><b>No. 01</b><span>Business document systems</span></p>
+            <h3 class="case__title" data-split>Salt &amp; Fade Business Hub</h3>
+            <p class="case__desc" data-lines>A browser-based document studio for a Sri Lankan apparel brand. One central state object drives four templates (invoice, proposal, agreement and agenda) with editable line items, LKR formatting, editable contract clauses and one-click PDF export.</p>
+            <aside class="case__access" aria-label="Public demo login password">
+              <span class="case__access-label mono">PUBLIC DEMO · PASSWORD REQUIRED</span>
+              <code>Admin@123</code>
+              <span class="case__access-hint">Enter this password after opening the hub.</span>
+            </aside>
+            <p class="case__svc"><span class="mono">Service</span>Custom business-document tools: the forms a team fills every day, turned into branded, print-ready PDFs.</p>
+            <ul class="case__stack mono" aria-label="Stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jsPDF</li><li>html2canvas</li></ul>
+            <a class="case__link" href="https://sashiranka-live.github.io/Salte-n-Fade-admin-portal-business-hub/" target="_blank" rel="noopener noreferrer" data-hover><span>Open password-protected demo</span><span class="mono">sashiranka-live.github.io/Salte-n-Fade-admin-portal-business-hub</span><i aria-hidden="true">↗</i></a>
+          </div>
+        </li>
+
+        <li class="case" data-case>
+          <a class="case__fig" href="https://sashiranka-live.github.io/Inspired-College-C-hub/" target="_blank" rel="noopener noreferrer" data-hover aria-label="Open Inspire College Certificate Studio (live site)">
+            <span class="case__crop" aria-hidden="true"></span>
+            <img class="case__ht" src="/work/inspire-ht.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+            <img class="case__col" src="/work/inspire.webp" alt="Inspire College Certificate Studio: certificate editor with a placeholder name" width="1200" height="900" loading="lazy" decoding="async" />
+            <span class="case__tag mono">Proof 02 · Editor · placeholder name</span>
+          </a>
+          <div class="case__body">
+            <p class="case__no mono"><b>No. 02</b><span>Certificate &amp; print tooling</span></p>
+            <h3 class="case__title" data-split>Inspire College Certificate Studio</h3>
+            <p class="case__desc" data-lines>A live certificate editor for a college. Staff type the student name, course and date, see the certificate update on a zoomable, fit-to-screen workspace, and export a high-resolution PDF or PNG with a sensible filename.</p>
+            <p class="case__svc"><span class="mono">Service</span>Certificate and print tooling: templates that non-designers can fill in and export at print quality.</p>
+            <ul class="case__stack mono" aria-label="Stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>html2pdf.js</li><li>html2canvas</li></ul>
+            <a class="case__link" href="https://sashiranka-live.github.io/Inspired-College-C-hub/" target="_blank" rel="noopener noreferrer" data-hover><span>View live</span><span class="mono">sashiranka-live.github.io/Inspired-College-C-hub</span><i aria-hidden="true">↗</i></a>
+          </div>
+        </li>
+
+        <li class="case" data-case>
+          <a class="case__fig" href="https://sashiranka-live.github.io/Free-Paradise-Resort/" target="_blank" rel="noopener noreferrer" data-hover aria-label="Open Free Paradise Resort (live site)">
+            <span class="case__crop" aria-hidden="true"></span>
+            <img class="case__ht" src="/work/resort-ht.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+            <img class="case__col" src="/work/resort.webp" alt="Free Paradise Resort: home page hero" width="1200" height="900" loading="lazy" decoding="async" />
+            <span class="case__tag mono">Proof 03 · Home page</span>
+          </a>
+          <div class="case__body">
+            <p class="case__no mono"><b>No. 03</b><span>Hospitality websites</span></p>
+            <h3 class="case__title" data-split>Free Paradise Resort</h3>
+            <p class="case__desc" data-lines>An eight-page website for a nature resort: home, about, accommodation, dining, events, leisure, gallery and contact, with packages, a billiards lounge section and a booking-request form.</p>
+            <p class="case__svc"><span class="mono">Service</span>Marketing websites for hotels, resorts and other small businesses: clear pages, packages and an easy way to enquire.</p>
+            <ul class="case__stack mono" aria-label="Stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            <a class="case__link" href="https://sashiranka-live.github.io/Free-Paradise-Resort/" target="_blank" rel="noopener noreferrer" data-hover><span>View live</span><span class="mono">sashiranka-live.github.io/Free-Paradise-Resort</span><i aria-hidden="true">↗</i></a>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ SHEET 03 : ABOUT ============ -->
+    <section class="about sheet-sec" id="about" aria-labelledby="about-title">
+      <header class="sec-head">
+        <p class="mono sec-head__folio"><span>Sheet 03 / 04</span><span>Profile</span><span>Colombo, Sri Lanka</span></p>
+        <h2 class="about__heading" id="about-title" data-split>About</h2>
+      </header>
+      <div class="about__grid">
+        <figure class="about__print" data-print>
+          <span class="case__crop" aria-hidden="true"></span>
+          <img src="/portrait/about-photo.webp" alt="Sasiranka D. Fernando in a black beanie and leather coat, lowering his sunglasses" width="960" height="958" loading="lazy" decoding="async" />
+          <figcaption class="mono"><span><b>FIG. 02</b> / COLOMBO</span><span>THE DEVELOPER</span></figcaption>
+        </figure>
+        <div class="about__copy">
+          <p class="about__kicker mono">INDEPENDENT DEVELOPER <span>·</span> VZiP DEVELOGENZ</p>
+          <p class="about__big" data-split>
+            <span>I build business tools</span>
+            <span>from browser to <i>print.</i></span>
+          </p>
+          <p data-lines>I’m Sasiranka D. Fernando, a Colombo-based web developer. I build browser-based systems that turn everyday business information into polished, print-ready invoices, proposals, agreements and certificates—without requiring design software.</p>
+          <p data-lines>For Sri Lankan businesses, I also design and develop responsive websites that make their services clear and help customers take the next step.</p>
+          <dl class="about__list">
+            <div><dt class="mono">SPECIALTY</dt><dd>Business document systems · PDF and certificate tools · Responsive websites</dd></div>
+            <div><dt class="mono">TOOLKIT</dt><dd>HTML · CSS · JavaScript · jsPDF · html2canvas</dd></div>
+            <div><dt class="mono">LOCATION</dt><dd>Colombo, Sri Lanka <span class="about__timezone">UTC+5:30</span></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SHEET 04 : CONTACT / FOOTER ============ -->
+    <footer class="foot sheet-sec" id="contact" aria-labelledby="contact-title">
+      <!-- lazy background loop: sources are only attached when the section nears the viewport -->
+      <div class="bgvid foot__bg" id="contactBg" aria-hidden="true">
+        <img class="bgvid__poster" src="/video/contact-poster.webp" alt="" width="1280" height="886" loading="lazy" decoding="async" />
+        <video class="bgvid__video" id="contactVideo" muted playsinline preload="none" disablepictureinpicture disableremoteplayback tabindex="-1" width="1280" height="886">
+          <source data-src="/video/contact-bg-trimmed.mp4" type="video/mp4" />
+        </video>
+        <div class="bgvid__shade"></div>
+      </div>
+
+      <div class="foot__panel">
+        <p class="mono sec-head__folio"><span>Sheet 04 / 04</span><span>Contact</span><span>Colombo <b class="foot__clock" id="clock2">--:--</b></span></p>
+        <h2 class="foot__title" id="contact-title" data-split>IF NEED<br />CONSULTATION?<br />CLICK BELOW MAIL<br />AND CATCHUP US</h2>
+        <a class="foot__mail" href="mailto:sashirankafernando@gmail.com" data-hover="cta">
+          <span class="foot__mail-label mono">EMAIL · DIRECT CONTACT</span>
+          <span class="foot__mail-address">sashirankafernando@gmail.com</span>
+          <i aria-hidden="true">↗</i>
+        </a>
+        <div class="foot__row">
+          <ul class="foot__links mono">
+            <li><a href="mailto:sashirankafernando@gmail.com" data-hover>Email</a></li>
+            <li><a href="https://github.com/Sashiranka-LIVE" target="_blank" rel="noopener" data-hover>GitHub ↗</a></li>
+            <li><a href="#hero" data-hover>Back to top ↑</a></li>
+          </ul>
+          <img class="foot__sig" src="/brand/signature-mark.png" alt="Sasiranka D. Fernando signature" width="471" height="252" />
+        </div>
+        <p class="foot__fine mono"><span>© 2026 Sasiranka D. Fernando · VZiP DEVELOGENZ</span><span>sashiranka.me</span></p>
+      </div>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
